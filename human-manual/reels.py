@@ -79,30 +79,60 @@ def pluck(freq, dur, amp=0.18):
 def make_audio(total, events, path):
     n = int(SR * total) + SR
     mix = np.zeros(n)
-    # BGM: 느긋한 4코드 플럭 (C - G - Am - F), 92bpm
-    beat = 60 / 92
-    chords = [[261.6, 329.6, 392.0], [246.9, 293.7, 392.0], [220.0, 261.6, 329.6], [220.0, 261.6, 349.2]]
-    melody = [523.3, 587.3, 659.3, 587.3, 523.3, 440.0, 392.0, 440.0]
-    cache = {}
-    t, k = 0.0, 0
+    # BGM: 엉뚱하고 통통 튀는 뚱땅뚱땅 (튜바 쿵-짝 + 마림바 멜로디 + 뾰잉), 116bpm
+    bpm = 116; e8 = 60 / bpm / 2
+    mtof = lambda m: 440.0 * 2 ** ((m - 69) / 12)
+
+    def env_note(dur, tau):
+        tt = np.arange(int(SR * dur)) / SR
+        return tt, np.exp(-tt / tau) * np.minimum(1, tt / 0.004)
+
+    def marimba(m, dur=0.35, amp=0.30):
+        f = mtof(m); tt, e = env_note(dur, 0.11)
+        return amp * e * (np.sin(2 * np.pi * f * tt) + 0.35 * np.sin(2 * np.pi * 4 * f * tt) * np.exp(-tt / 0.02))
+
+    def tuba(m, dur=0.22, amp=0.38):
+        f = mtof(m); tt, e = env_note(dur, 0.12)
+        w = sum(np.sin(2 * np.pi * f * k * tt) / k ** 1.3 for k in range(1, 6))
+        return amp * e * w * (1 + 0.15 * np.sin(2 * np.pi * 6 * tt))
+
+    def pah(ms, dur=0.10, amp=0.10):
+        tt, e = env_note(dur, 0.04)
+        return amp * e * sum((2 / np.pi) * np.arcsin(np.sin(2 * np.pi * mtof(m) * tt)) for m in ms)
+
+    def boing(dur=0.35, amp=0.22):
+        tt = np.arange(int(SR * dur)) / SR
+        f = 220 * (1 + 2.5 * tt / dur) * (1 + 0.08 * np.sin(2 * np.pi * 18 * tt))
+        return amp * np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-tt / 0.2)
+
+    def put(w, at):
+        s = int(at * SR); e = min(n, s + len(w))
+        if s < n: mix[s:e] += w[: e - s]
+
+    # 화음(근음, 5음, 짝 화음) / 멜로디(8분음표 8개, None=쉼, 'B'=뾰잉)
+    prog = [(48, 55, [64, 67, 72]), (43, 50, [62, 65, 71]), (48, 55, [64, 67, 72]), (43, 50, [62, 65, 71]),
+            (41, 48, [65, 69, 72]), (48, 55, [64, 67, 72]), (43, 50, [62, 65, 71]), (48, 55, [64, 67, 72])]
+    mel = [[72, None, 76, None, 79, None, 76, 74], [71, None, 74, None, 77, None, 74, None],
+           [72, 76, 79, 84, None, 79, None, None], [79, 78, 77, 76, 74, None, 'B', None],
+           [77, None, 81, None, 84, None, 81, 79], [76, None, 79, 76, 72, None, None, None],
+           [74, 75, 76, None, 79, None, 77, 74], [72, None, 'B', None, 84, None, None, None]]
+    t, bar = 0.0, 0
     while t < total:
-        ch = chords[(k // 4) % 4]
-        f = ch[k % 3] if k % 2 == 0 else ch[(k + 1) % 3]
-        key = (round(f, 1), 0.1)
-        if key not in cache:
-            cache[key] = pluck(f, 0.9, 0.10)
-        s = int(t * SR)
-        seg = cache[key][: n - s]
-        mix[s:s + len(seg)] += seg
-        if k % 2 == 0:
-            mf = melody[(k // 2) % len(melody)]
-            key2 = (round(mf, 1), 0.2)
-            if key2 not in cache:
-                cache[key2] = pluck(mf, 0.7, 0.06)
-            seg = cache[key2][: n - s]
-            mix[s:s + len(seg)] += seg
-        t += beat / 2
-        k += 1
+        root, fifth, chord = prog[bar % 8]
+        for beat in range(4):
+            bt = t + beat * 2 * e8
+            if beat % 2 == 0:
+                put(tuba(root if beat == 0 else fifth), bt)
+            else:
+                put(pah(chord), bt)
+        for k, m in enumerate(mel[bar % 8]):
+            at = t + k * e8 + (0.03 if k % 2 else 0)   # 살짝 스윙
+            if m == 'B':
+                put(boing(), at)
+            elif m is not None:
+                put(marimba(m), at)
+        t += 8 * e8
+        bar += 1
     # 효과음
     for at, kind in events:
         s = int(at * SR)
@@ -179,15 +209,15 @@ def main(path):
             pop = 1.0 - 0.06 * (1 - ease(k / 6)) if k < 6 else 1.0   # 등장 시 살짝 튀어나옴
             if slide is not None:
                 fr = base.copy()
+                # 잘라내지 않고 슬라이드 전체를 통째로 확대/축소 (창 안에서 약 92~99%)
                 z = z0 + (z1 - z0) * ease(u)
-                cw, chh = R.W / z, R.H / z
-                cx = min(max(fx * R.W, cw / 2), R.W - cw / 2); cy = min(max(fy * R.H, chh / 2), R.H - chh / 2)
+                scale = 0.925 * (1 + (z - 1) * 0.55) * pop
+                ww, hh = int(R.W * scale), int(R.H * scale)
+                img = slide.resize((ww, hh), Image.BILINEAR)
+                ox, oy = (RW - ww) // 2, WIN_Y + (WIN_H - hh) // 2
                 if sc.get("shake") and k < 14:
-                    cx += rnd.uniform(-14, 14); cy += rnd.uniform(-14, 14)
-                crop = slide.crop((int(cx - cw / 2), int(cy - chh / 2), int(cx + cw / 2), int(cy + chh / 2)))
-                ww, hh = int(RW * pop), int(WIN_H * pop)
-                crop = crop.resize((ww, hh), Image.BILINEAR)
-                fr.paste(crop, ((RW - ww) // 2, WIN_Y + (WIN_H - hh) // 2))
+                    ox += int(rnd.uniform(-12, 12)); oy += int(rnd.uniform(-12, 12))
+                fr.paste(img, (ox, oy))
             else:
                 s = pop * (1 + 0.03 * ease(u))
                 ww, hh = int(RW * s), int(RH * s)
