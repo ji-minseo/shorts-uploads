@@ -43,7 +43,7 @@ def card_svg(sc, i, ep):
     if isinstance(d, str):
         b += f'<g transform="translate(540,1230) scale(1.15) translate(-540,-890)">{R.doodle(d, 540, 890)}</g>'
     elif d:
-        b += R.render_elements(d)
+        b += f'<g transform="translate(540,1230) scale(1.15) translate(-540,-890)">{R.render_elements(d)}</g>'
     b += R.text(540, 1840, HANDLE, 40, 700, fill="#9a8f80")
     return frame_svg(b, i)
 
