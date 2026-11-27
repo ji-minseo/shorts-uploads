@@ -10,7 +10,7 @@
 - **인간 (bed / human)**: 줄무늬 보라 파자마, 까만 헝클어진 머리, 더듬이 같은 삐친 머리카락. 반말, 감정 과잉.
 
 ## 한 화 구성 (9장, 1080×1350)
-1. `cover` — 표지 (제목 = 이번 화 질문)
+1. `cover` — 표지. **`hook` 필드 필수**: 이번 화에서 가장 웃긴 장면을 크게 보여주는 짧은 질문(2줄, 줄당 12자 내외, 예: "인간은 왜 자기 전에\n이불킥을 합니까?"). `elements`에는 2~3컷 중 제일 웃긴 장면을 크게 배치(패널 영역 x 80~1000, y 460~1200, 캐릭터 발 y 1150~1190)
 2. `comic` — 관찰일지: 인간의 이상 행동 장면
 3. `comic` — 사건이 커지는 장면 / 인간 대사
 4. `comic` — 쿠루가 분석하며 이해 못함 → caption "보호자는 (다시) 설명서를 펼쳤다."
@@ -72,3 +72,24 @@
 5. **overview.jpg와 각 슬라이드를 직접 열어서 검사**: 글자 잘림, 말풍선이 캐릭터/글자 가림, 요소 겹침, 테두리 밖으로 삐져나감 → JSON 좌표 수정 후 재렌더. 문제 없을 때까지 반복.
 6. `out/epNN/caption.txt` 작성 (EP.01, EP.02 캡션 형식 그대로: 제목, 상황 한 줄, ✔ 3개, 💊 처방 + 출처, 참여 유도 질문, 마지막 줄 해시태그 4개 고정: #인스타툰 #심리학 #심리툰 #생활과학)
 7. topics.md에 체크, 커밋 & 푸시
+
+## 릴스 (reels) — episode JSON의 "reels" 배열
+`python3 reels.py episodes/epNN.json` → out/epNN/reels_epNN.mp4 (1080×1920, 약 25초, BGM·효과음 포함) + reels_sheet.jpg(확인용)
+render.py를 먼저 돌려 slide jpg가 있어야 한다. EP.01의 reels 배열을 형식 그대로 참고.
+구성(합계 24~27초):
+1. `{"slide":2, "top":"공감 한 줄(2줄 이내)", "dur":2.8, "zoom":[1.0,1.1], "focus":[0.5,0.55]}`
+2. `{"slide":3, "top":"사건 한 줄", "dur":2.6, "zoom":[1.12,1.0], "shake":true, "sfx":"thump"}` (shake/thump는 큰 리액션 장면일 때만)
+3. `{"slide":4, "top":"외계인 보호자도\n이해 못 한 ~", "dur":2.8}`
+4~6. 이유 카드 3장: `{"card":"이유 ①\n핵심 한 줄\n(줄당 12자 내외)", "sub":"보충 한 줄", "doodle": manual 페이지의 doodle 배열 또는 문자열, "label":"설명서", "dur":3.4~3.6}`
+   - 카드 doodle 배열 좌표는 manual과 같은 좌표계(x 80~1000, y 730~1030)에 그리면 카드 하단에 1.15배로 배치된다. 문자열 doodle은 EP.01 전용(brain_daynight 등).
+7. `{"slide":8, "top":"처방전: 한 줄 요약", "dur":3.4}`
+8. `{"end":true, "dur":3.2}`
+렌더 후 reels_sheet.jpg를 Read로 열어 글자 잘림·겹침을 확인한다.
+
+## 인스타 업로드 (Buffer, 사용자 승인 후에만)
+- Zapier BufferCLIAPI, tool_name buffer_add_to_queue, connection_id 025e3023-9861-8cea-a605-6739d6c9d58c
+- organizationId 6b0938fd5c3f4053dedb3185, channelId 6b09395e8541f09ecbbe5603 (kuru.observes Instagram)
+- 파일 주소는 push 후 커밋 SHA로: https://raw.githubusercontent.com/ji-minseo/shorts-uploads/<SHA>/human-manual/out/epNN/<파일>
+- 캐러셀: dynamic_properties = {ig_post_type:"post", attachment:"multiple_images", text:캡션 전문, scheduling_type:"direct", image0..image8: slide01~09 주소} (image0~8은 dynamic_properties 바로 아래 평평하게. uploads 배열로 넣으면 이미지가 안 붙는다)
+- 릴스: dynamic_properties = {ig_post_type:"reels", video: mp4 주소, text: 릴스 캡션, ig_share_to_feed:"true", scheduling_type:"direct"}
+- 결과의 type이 picture/video, can_send_direct가 true인지 확인.
