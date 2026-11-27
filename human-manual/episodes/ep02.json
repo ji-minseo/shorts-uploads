@@ -1,0 +1,345 @@
+{
+  "ep": 2,
+  "title": "인간은 왜 스트레스를 받으면\n물건을 구매합니까?",
+  "next": "인간에게 급여를 지급했는데\n왜 여전히 불행합니까?",
+  "slides": [
+    {
+      "type": "cover",
+      "elements": [
+        {
+          "type": "human",
+          "x": 720,
+          "y": 1150,
+          "s": 0.85,
+          "pose": "walk",
+          "eyes": "blank",
+          "hold": "bag"
+        },
+        {
+          "type": "alien",
+          "x": 280,
+          "y": 1150,
+          "s": 0.9,
+          "mood": "reading",
+          "hold": "book"
+        }
+      ]
+    },
+    {
+      "type": "comic",
+      "label": "관찰일지 DAY 52 · 밤 10:30",
+      "elements": [
+        {
+          "type": "human",
+          "x": 620,
+          "y": 1150,
+          "s": 1.0,
+          "pose": "sit",
+          "eyes": "blank",
+          "hold": "phone"
+        },
+        {
+          "type": "alien",
+          "x": 220,
+          "y": 1150,
+          "s": 0.8,
+          "mood": "calm",
+          "hold": "clipboard"
+        },
+        {
+          "type": "bubble",
+          "x": 640,
+          "y": 470,
+          "w": 460,
+          "text": "오늘 팀장님한테\n엄청 깨졌어...",
+          "tail": [
+            620,
+            680
+          ]
+        }
+      ],
+      "caption": "그리고 인간은 휴대폰을 열었다."
+    },
+    {
+      "type": "comic",
+      "label": "관찰일지 DAY 55 · 현관",
+      "elements": [
+        {
+          "type": "icon",
+          "name": "box",
+          "x": 790,
+          "y": 1150,
+          "s": 1.1
+        },
+        {
+          "type": "icon",
+          "name": "box",
+          "x": 920,
+          "y": 1150,
+          "s": 1.0
+        },
+        {
+          "type": "icon",
+          "name": "box",
+          "x": 855,
+          "y": 1058,
+          "s": 1.0
+        },
+        {
+          "type": "human",
+          "x": 520,
+          "y": 1170,
+          "s": 0.9,
+          "pose": "cheer",
+          "eyes": "happy"
+        },
+        {
+          "type": "alien",
+          "x": 190,
+          "y": 1170,
+          "s": 0.75,
+          "mood": "confused",
+          "hold": "clipboard"
+        },
+        {
+          "type": "bubble",
+          "x": 310,
+          "y": 330,
+          "w": 420,
+          "text": "택배 상자 3개 도착.\n수신인: 전부 인간.",
+          "kind": "narr"
+        },
+        {
+          "type": "bubble",
+          "x": 740,
+          "y": 560,
+          "w": 400,
+          "text": "이건 날 위한\n선물이야!!",
+          "tail": [
+            580,
+            720
+          ]
+        }
+      ]
+    },
+    {
+      "type": "comic",
+      "label": "관찰일지 DAY 55 · 분석 중",
+      "elements": [
+        {
+          "type": "alien",
+          "x": 540,
+          "y": 1170,
+          "s": 1.15,
+          "mood": "confused",
+          "hold": "none"
+        },
+        {
+          "type": "bubble",
+          "x": 540,
+          "y": 390,
+          "w": 780,
+          "text": "스트레스를 받으면 돈을 쓴다.\n돈이 줄면 스트레스를 받는다.\n\n...이것은 무한 루프입니까?",
+          "tail": [
+            540,
+            600
+          ]
+        }
+      ],
+      "caption": "보호자는 다시 설명서를 펼쳤다."
+    },
+    {
+      "type": "manual",
+      "page": 1,
+      "heading": "슬픈 인간은 '내 맘대로 되는 게 없다'고 느낀다",
+      "body": "슬픔은 '상황이 내 인생을 휘두른다'는\n느낌과 강하게 연결되어 있다.\n\n쇼핑은 고르고, 비교하고, 결정하는 일.\n작은 선택들이 '내가 정한다'는\n통제감을 되돌려준다.",
+      "doodle": [
+        {
+          "type": "human",
+          "x": 260,
+          "y": 1000,
+          "s": 0.58,
+          "pose": "slump",
+          "eyes": "sad"
+        },
+        {
+          "type": "arrow",
+          "x1": 400,
+          "y1": 880,
+          "x2": 620,
+          "y2": 880
+        },
+        {
+          "type": "label",
+          "x": 510,
+          "y": 850,
+          "text": "고르기 시작",
+          "size": 32
+        },
+        {
+          "type": "human",
+          "x": 780,
+          "y": 1000,
+          "s": 0.58,
+          "pose": "cheer",
+          "eyes": "happy"
+        },
+        {
+          "type": "box",
+          "x": 260,
+          "y": 1060,
+          "w": 220,
+          "h": 60,
+          "text": "통제 불가",
+          "fill": "#ffc9c9",
+          "size": 30
+        }
+      ],
+      "note": "결제 버튼 =\n통제감 버튼"
+    },
+    {
+      "type": "manual",
+      "page": 2,
+      "heading": "사실 결제 전이 제일 설렌다",
+      "body": "인간의 뇌는 보상을 받을 때뿐 아니라\n'곧 받을 것 같을 때'도 크게 들뜬다.\n\n갖고 싶은 물건을 볼 때 보상과 관련된\n뇌 부위가 반응한다는 연구도 있다.\n그래서 장바구니 채우는 순간이 짜릿하다.",
+      "doodle": [
+        {
+          "type": "icon",
+          "name": "phone",
+          "x": 250,
+          "y": 860,
+          "s": 1.1
+        },
+        {
+          "type": "icon",
+          "name": "heart",
+          "x": 250,
+          "y": 850,
+          "s": 0.5
+        },
+        {
+          "type": "box",
+          "x": 250,
+          "y": 1000,
+          "w": 200,
+          "h": 60,
+          "text": "장바구니",
+          "fill": "#fff3c4",
+          "size": 30
+        },
+        {
+          "type": "arrow",
+          "x1": 360,
+          "y1": 870,
+          "x2": 560,
+          "y2": 870
+        },
+        {
+          "type": "brain",
+          "x": 700,
+          "y": 870,
+          "r": 90,
+          "face": "busy"
+        },
+        {
+          "type": "icon",
+          "name": "dopamine",
+          "x": 860,
+          "y": 760,
+          "s": 0.7
+        }
+      ],
+      "note": "택배 기다릴 때가\n제일 행복함"
+    },
+    {
+      "type": "manual",
+      "page": 3,
+      "heading": "단, 화난 인간에겐 잘 안 통한다",
+      "body": "한 연구에서 쇼핑의 효과는 슬픔에서만\n나타났고, 분노에서는 나타나지 않았다.\n분노는 '남 탓'에 가까운 감정이라\n내가 뭘 고른다고 풀리지 않는다.\n\n게다가 습관이 되면 카드값이라는\n새 스트레스가 도착한다.",
+      "doodle": [
+        {
+          "type": "brain",
+          "x": 250,
+          "y": 880,
+          "r": 85,
+          "face": "evil"
+        },
+        {
+          "type": "icon",
+          "name": "lightning",
+          "x": 385,
+          "y": 790,
+          "s": 0.7
+        },
+        {
+          "type": "box",
+          "x": 250,
+          "y": 1020,
+          "w": 260,
+          "h": 60,
+          "text": "분노: 효과 없음",
+          "fill": "#ffc9c9",
+          "size": 28
+        },
+        {
+          "type": "human",
+          "x": 740,
+          "y": 1010,
+          "s": 0.55,
+          "pose": "stand",
+          "eyes": "shock",
+          "hold": "money"
+        },
+        {
+          "type": "box",
+          "x": 900,
+          "y": 800,
+          "w": 150,
+          "h": 60,
+          "text": "카드값",
+          "fill": "white",
+          "size": 30
+        }
+      ],
+      "note": "카드 명세서 =\n2차 스트레스"
+    },
+    {
+      "type": "solution",
+      "heading": "보호자용 처방전",
+      "body": "장바구니에만 담고 24시간 기다리게 한다.\n\n한 연구에서는 실제로 사지 않고\n'고르기만' 해도 슬픔이 줄었다.\n(Rick 외, 2014)\n\n통제감은 챙기고, 카드값은 지키는 방법.",
+      "elements": [
+        {
+          "type": "alien",
+          "x": 290,
+          "y": 1110,
+          "s": 0.75,
+          "mood": "proud",
+          "hold": "none"
+        },
+        {
+          "type": "human",
+          "x": 720,
+          "y": 1110,
+          "s": 0.72,
+          "pose": "stand",
+          "eyes": "happy",
+          "hold": "phone"
+        }
+      ]
+    },
+    {
+      "type": "ending",
+      "log": "관찰 결론:\n인간은 슬플 때\n선택권이 필요한 생물이다.",
+      "elements": [
+        {
+          "type": "alien",
+          "x": 540,
+          "y": 910,
+          "s": 1.0,
+          "mood": "love",
+          "hold": "clipboard"
+        }
+      ]
+    }
+  ]
+}
