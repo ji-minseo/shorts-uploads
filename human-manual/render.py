@@ -577,7 +577,7 @@ def page_number(i, n):
 
 
 def footer_brand():
-    return text(70, H - 30, "@인간사용설명서", 30, 700, anchor="start", fill="#9a8f80")
+    return text(70, H - 30, "@kuru.observes", 30, 700, anchor="start", fill="#9a8f80")
 
 
 def slide_cover(ep, s):
