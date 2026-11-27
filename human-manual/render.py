@@ -581,6 +581,15 @@ def footer_brand():
 
 
 def slide_cover(ep, s):
+    if s.get("hook"):
+        g = []
+        tag = f"인간 사용설명서 EP.{ep['ep']:02d}"
+        g.append(shape(wpath(rect_pts(70, 60, 470, 74)), YELLOW, 5, extra='transform="rotate(-2 305 97)"'))
+        g.append(text(305, 112, tag, 40, rot=-2))
+        g.append(text(540, 250, s["hook"], fit(s["hook"], 88, 900), lh=1.22))
+        g.append(wrect(70, 450, 940, 760, "white", 7))
+        g.append(f'<g clip-path="url(#coverpanel)">{render_elements(s["elements"])}</g>')
+        return "".join(g)
     g = [wrect(60, 60, W - 120, H - 170, "none", 6)]
     g.append(wrect(150, 110, 780, 140, YELLOW, 6))
     g.append(text(540, 205, "인간 사용설명서", 86))
@@ -656,6 +665,7 @@ def build_svg(ep, s, i, n):
   </filter>
   <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="5"/>
     <feColorMatrix values="0 0 0 0 0.5  0 0 0 0 0.45  0 0 0 0 0.35  0 0 0 0.07 0"/></filter>
+  <clipPath id="coverpanel"><rect x="72" y="452" width="936" height="756"/></clipPath>
   <clipPath id="panel"><rect x="62" y="172" width="{W-124}" height="1036"/></clipPath>
 </defs>
 <rect width="{W}" height="{H}" fill="{PAPER}"/>
