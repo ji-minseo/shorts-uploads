@@ -70,5 +70,5 @@
 3. `episodes/epNN.json` 작성 (EP.01, EP.02를 예시로 참고)
 4. `python3 render.py episodes/epNN.json` → `out/epNN/` 에 slide01~09.jpg + overview.jpg
 5. **overview.jpg와 각 슬라이드를 직접 열어서 검사**: 글자 잘림, 말풍선이 캐릭터/글자 가림, 요소 겹침, 테두리 밖으로 삐져나감 → JSON 좌표 수정 후 재렌더. 문제 없을 때까지 반복.
-6. `out/epNN/caption.txt` 작성 (EP.01, EP.02 캡션 형식 그대로: 제목, 상황 한 줄, ✔ 3개, 💊 처방 + 출처, 참여 유도 질문, 해시태그 10개)
+6. `out/epNN/caption.txt` 작성 (EP.01, EP.02 캡션 형식 그대로: 제목, 상황 한 줄, ✔ 3개, 💊 처방 + 출처, 참여 유도 질문, 마지막 줄 해시태그 4개 고정: #인스타툰 #심리학 #심리툰 #생활과학)
 7. topics.md에 체크, 커밋 & 푸시
