@@ -1,0 +1,576 @@
+{
+  "ep": 3,
+  "title": "인간에게 급여를 지급했는데\n왜 여전히 불행합니까?",
+  "next": "인간은 왜 이불 밖으로\n나오기를 거부합니까?",
+  "slides": [
+    {
+      "type": "cover",
+      "hook": "인간은 왜 월급날 웃고\n3일 뒤에 웁니까?",
+      "elements": [
+        {
+          "type": "human",
+          "x": 600,
+          "y": 1180,
+          "s": 1.05,
+          "pose": "sit",
+          "eyes": "blank",
+          "hold": "coin"
+        },
+        {
+          "type": "alien",
+          "x": 185,
+          "y": 1190,
+          "s": 0.72,
+          "mood": "shock",
+          "hold": "clipboard"
+        },
+        {
+          "type": "bubble",
+          "x": 640,
+          "y": 560,
+          "w": 460,
+          "text": "월급이 통장을\n스쳐 지나갔어...",
+          "tail": [
+            620,
+            700
+          ]
+        }
+      ]
+    },
+    {
+      "type": "comic",
+      "label": "관찰일지 DAY 61 · 월급날 아침",
+      "elements": [
+        {
+          "type": "human",
+          "x": 620,
+          "y": 1160,
+          "s": 0.95,
+          "pose": "cheer",
+          "eyes": "happy",
+          "hold": "money"
+        },
+        {
+          "type": "alien",
+          "x": 210,
+          "y": 1160,
+          "s": 0.75,
+          "mood": "calm",
+          "hold": "clipboard"
+        },
+        {
+          "type": "bubble",
+          "x": 300,
+          "y": 320,
+          "w": 420,
+          "text": "보호자 보고:\n급여 지급 완료.",
+          "kind": "narr"
+        },
+        {
+          "type": "shout",
+          "x": 680,
+          "y": 500,
+          "text": "나 부자다!!"
+        }
+      ],
+      "caption": "인간의 행복 지수: 최고치 기록."
+    },
+    {
+      "type": "comic",
+      "label": "관찰일지 DAY 64 · 같은 인간",
+      "elements": [
+        {
+          "type": "human",
+          "x": 620,
+          "y": 1160,
+          "s": 0.95,
+          "pose": "slump",
+          "eyes": "sad",
+          "hold": "phone"
+        },
+        {
+          "type": "alien",
+          "x": 210,
+          "y": 1160,
+          "s": 0.75,
+          "mood": "confused",
+          "hold": "clipboard"
+        },
+        {
+          "type": "bubble",
+          "x": 300,
+          "y": 320,
+          "w": 420,
+          "text": "급여 지급 후 3일 경과.",
+          "kind": "narr"
+        },
+        {
+          "type": "bubble",
+          "x": 660,
+          "y": 480,
+          "w": 480,
+          "text": "동기는 나보다\n더 받는대...\n난 망했어...",
+          "tail": [
+            640,
+            680
+          ]
+        }
+      ]
+    },
+    {
+      "type": "comic",
+      "label": "관찰일지 DAY 64 · 분석 중",
+      "elements": [
+        {
+          "type": "alien",
+          "x": 540,
+          "y": 1170,
+          "s": 1.15,
+          "mood": "confused",
+          "hold": "none"
+        },
+        {
+          "type": "bubble",
+          "x": 540,
+          "y": 400,
+          "w": 780,
+          "text": "급여는 그대로 있다.\n행복만 3일 만에 사라졌다.\n\n...인간의 행복은\n충전식이 아닙니까?",
+          "tail": [
+            540,
+            620
+          ]
+        }
+      ],
+      "caption": "보호자는 다시 설명서를 펼쳤다."
+    },
+    {
+      "type": "manual",
+      "page": 1,
+      "heading": "인간은 좋은 일에도 금방 익숙해진다",
+      "body": "좋은 일이 생겨도 인간의 행복은\n시간이 지나면 원래 수준 가까이\n돌아오는 경향이 있다. (쾌락 적응)\n\n월급이 오르면 기대치도 같이 올라\n'이 정도는 당연'해진다.",
+      "doodle": [
+        {
+          "type": "human",
+          "x": 250,
+          "y": 1000,
+          "s": 0.56,
+          "pose": "cheer",
+          "eyes": "happy",
+          "hold": "money"
+        },
+        {
+          "type": "arrow",
+          "x1": 390,
+          "y1": 880,
+          "x2": 580,
+          "y2": 880
+        },
+        {
+          "type": "label",
+          "x": 485,
+          "y": 845,
+          "text": "3일 후",
+          "size": 32
+        },
+        {
+          "type": "human",
+          "x": 720,
+          "y": 1000,
+          "s": 0.58,
+          "pose": "stand",
+          "eyes": "blank"
+        },
+        {
+          "type": "box",
+          "x": 250,
+          "y": 1060,
+          "w": 200,
+          "h": 60,
+          "text": "월급날",
+          "fill": "#fff3c4",
+          "size": 30
+        },
+        {
+          "type": "box",
+          "x": 880,
+          "y": 820,
+          "w": 170,
+          "h": 60,
+          "text": "원래대로",
+          "fill": "#e3e3e3",
+          "size": 30
+        }
+      ],
+      "note": "행복에도\n유통기한 있음"
+    },
+    {
+      "type": "manual",
+      "page": 2,
+      "heading": "인간은 금액보다 '순위'를 본다",
+      "body": "영국 성인 약 1만 2천 명 자료에서\n삶의 만족도는 소득 액수보다\n'주변에서 몇 등인가'와 더 관련됐다.\n\n특히 나보다 많이 버는 사람과\n비교할 때 더 크게 흔들렸다.",
+      "doodle": [
+        {
+          "type": "human",
+          "x": 250,
+          "y": 1000,
+          "s": 0.58,
+          "pose": "slump",
+          "eyes": "sad",
+          "hold": "coin"
+        },
+        {
+          "type": "box",
+          "x": 250,
+          "y": 1060,
+          "w": 120,
+          "h": 60,
+          "text": "나",
+          "fill": "white",
+          "size": 30
+        },
+        {
+          "type": "label",
+          "x": 470,
+          "y": 850,
+          "text": "비교 중...",
+          "size": 32,
+          "rot": -5
+        },
+        {
+          "type": "human",
+          "x": 690,
+          "y": 1000,
+          "s": 0.56,
+          "pose": "cheer",
+          "eyes": "happy",
+          "hold": "money"
+        },
+        {
+          "type": "box",
+          "x": 880,
+          "y": 820,
+          "w": 130,
+          "h": 60,
+          "text": "동기",
+          "fill": "#ffc9c9",
+          "size": 30
+        }
+      ],
+      "note": "남의 월급이\n더 커 보임"
+    },
+    {
+      "type": "manual",
+      "page": 3,
+      "heading": "돈은 늘어도 시간은 안 늘어난다",
+      "body": "소득이 높을수록 대체로\n행복도도 높았다는 연구도 있다.\n돈 자체가 쓸모없는 건 아니다.\n\n다만 늘 시간에 쫓기는 느낌은\n기분을 깎아 먹는다.",
+      "doodle": [
+        {
+          "type": "icon",
+          "name": "money",
+          "x": 230,
+          "y": 840,
+          "s": 1.0
+        },
+        {
+          "type": "box",
+          "x": 230,
+          "y": 960,
+          "w": 180,
+          "h": 60,
+          "text": "돈: 있음",
+          "fill": "#fff3c4",
+          "size": 30
+        },
+        {
+          "type": "human",
+          "x": 660,
+          "y": 985,
+          "s": 0.52,
+          "pose": "walk",
+          "eyes": "shock",
+          "hold": "bag"
+        },
+        {
+          "type": "icon",
+          "name": "clock",
+          "x": 440,
+          "y": 830,
+          "s": 0.8
+        },
+        {
+          "type": "box",
+          "x": 440,
+          "y": 960,
+          "w": 200,
+          "h": 60,
+          "text": "시간: 없음",
+          "fill": "#ffc9c9",
+          "size": 28
+        }
+      ],
+      "note": "통장: 통통\n일정: 꽉꽉"
+    },
+    {
+      "type": "solution",
+      "heading": "보호자용 처방전",
+      "body": "월급 일부로 '시간'을 사게 한다.\n\n청소·장보기처럼 귀찮은 일을 맡기는 데\n돈을 쓴 사람들이 삶의 만족도가\n더 높았다. (Whillans 외, 2017)\n\n물건 대신 여유를 사는 방법.",
+      "elements": [
+        {
+          "type": "alien",
+          "x": 290,
+          "y": 1110,
+          "s": 0.75,
+          "mood": "proud",
+          "hold": "none"
+        },
+        {
+          "type": "human",
+          "x": 720,
+          "y": 1110,
+          "s": 0.72,
+          "pose": "stand",
+          "eyes": "happy",
+          "hold": "cup"
+        }
+      ]
+    },
+    {
+      "type": "ending",
+      "log": "관찰 결론:\n인간의 행복은\n일시불이 아니라 할부다.",
+      "elements": [
+        {
+          "type": "alien",
+          "x": 540,
+          "y": 910,
+          "s": 1.0,
+          "mood": "love",
+          "hold": "clipboard"
+        }
+      ]
+    }
+  ],
+  "reels": [
+    {
+      "slide": 2,
+      "top": "월급날 아침,\n인간이 부자가 됐다",
+      "dur": 2.8,
+      "zoom": [
+        1.0,
+        1.1
+      ],
+      "focus": [
+        0.55,
+        0.5
+      ]
+    },
+    {
+      "slide": 3,
+      "top": "...그리고 3일 뒤",
+      "dur": 2.8,
+      "zoom": [
+        1.12,
+        1.0
+      ],
+      "focus": [
+        0.6,
+        0.55
+      ],
+      "shake": true,
+      "sfx": "thump"
+    },
+    {
+      "slide": 4,
+      "top": "외계인 보호자도\n이해 못 한 3일짜리 행복",
+      "dur": 2.8,
+      "zoom": [
+        1.0,
+        1.12
+      ],
+      "focus": [
+        0.5,
+        0.45
+      ]
+    },
+    {
+      "card": "이유 ①\n좋은 일에도\n금방 익숙해진다",
+      "sub": "오른 월급만큼 기대치도 올라요",
+      "doodle": [
+        {
+          "type": "human",
+          "x": 250,
+          "y": 1000,
+          "s": 0.56,
+          "pose": "cheer",
+          "eyes": "happy",
+          "hold": "money"
+        },
+        {
+          "type": "arrow",
+          "x1": 390,
+          "y1": 880,
+          "x2": 580,
+          "y2": 880
+        },
+        {
+          "type": "label",
+          "x": 485,
+          "y": 845,
+          "text": "3일 후",
+          "size": 32
+        },
+        {
+          "type": "human",
+          "x": 720,
+          "y": 1000,
+          "s": 0.58,
+          "pose": "stand",
+          "eyes": "blank"
+        },
+        {
+          "type": "box",
+          "x": 250,
+          "y": 1060,
+          "w": 200,
+          "h": 60,
+          "text": "월급날",
+          "fill": "#fff3c4",
+          "size": 30
+        },
+        {
+          "type": "box",
+          "x": 880,
+          "y": 820,
+          "w": 170,
+          "h": 60,
+          "text": "원래대로",
+          "fill": "#e3e3e3",
+          "size": 30
+        }
+      ],
+      "label": "설명서",
+      "dur": 3.6
+    },
+    {
+      "card": "이유 ②\n금액보다\n'순위'를 본다",
+      "sub": "동기 월급이 내 행복을 흔들어요",
+      "doodle": [
+        {
+          "type": "human",
+          "x": 250,
+          "y": 1000,
+          "s": 0.58,
+          "pose": "slump",
+          "eyes": "sad",
+          "hold": "coin"
+        },
+        {
+          "type": "box",
+          "x": 250,
+          "y": 1060,
+          "w": 120,
+          "h": 60,
+          "text": "나",
+          "fill": "white",
+          "size": 30
+        },
+        {
+          "type": "label",
+          "x": 470,
+          "y": 850,
+          "text": "비교 중...",
+          "size": 32,
+          "rot": -5
+        },
+        {
+          "type": "human",
+          "x": 690,
+          "y": 1000,
+          "s": 0.56,
+          "pose": "cheer",
+          "eyes": "happy",
+          "hold": "money"
+        },
+        {
+          "type": "box",
+          "x": 880,
+          "y": 820,
+          "w": 130,
+          "h": 60,
+          "text": "동기",
+          "fill": "#ffc9c9",
+          "size": 30
+        }
+      ],
+      "label": "설명서",
+      "dur": 3.4
+    },
+    {
+      "card": "이유 ③\n돈은 늘어도\n시간은 안 는다",
+      "sub": "쫓기는 느낌이 기분을 깎아요",
+      "doodle": [
+        {
+          "type": "icon",
+          "name": "money",
+          "x": 230,
+          "y": 840,
+          "s": 1.0
+        },
+        {
+          "type": "box",
+          "x": 230,
+          "y": 960,
+          "w": 180,
+          "h": 60,
+          "text": "돈: 있음",
+          "fill": "#fff3c4",
+          "size": 30
+        },
+        {
+          "type": "human",
+          "x": 660,
+          "y": 985,
+          "s": 0.52,
+          "pose": "walk",
+          "eyes": "shock",
+          "hold": "bag"
+        },
+        {
+          "type": "icon",
+          "name": "clock",
+          "x": 440,
+          "y": 830,
+          "s": 0.8
+        },
+        {
+          "type": "box",
+          "x": 440,
+          "y": 960,
+          "w": 200,
+          "h": 60,
+          "text": "시간: 없음",
+          "fill": "#ffc9c9",
+          "size": 28
+        }
+      ],
+      "label": "설명서",
+      "dur": 3.4
+    },
+    {
+      "slide": 8,
+      "top": "처방전: 월급 일부로\n'시간'을 사기",
+      "dur": 3.4,
+      "zoom": [
+        1.0,
+        1.08
+      ],
+      "focus": [
+        0.5,
+        0.4
+      ]
+    },
+    {
+      "end": true,
+      "dur": 3.2
+    }
+  ]
+}
