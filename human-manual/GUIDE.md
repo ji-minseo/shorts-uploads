@@ -93,3 +93,10 @@ render.py를 먼저 돌려 slide jpg가 있어야 한다. EP.01의 reels 배열�
 - 캐러셀: dynamic_properties = {ig_post_type:"post", attachment:"multiple_images", text:캡션 전문, scheduling_type:"direct", image0..image8: slide01~09 주소} (image0~8은 dynamic_properties 바로 아래 평평하게. uploads 배열로 넣으면 이미지가 안 붙는다)
 - 릴스: dynamic_properties = {ig_post_type:"reels", video: mp4 주소, text: 릴스 캡션, ig_share_to_feed:"true", scheduling_type:"direct"}
 - 결과의 type이 picture/video, can_send_direct가 true인지 확인.
+
+## 유튜브 쇼츠 업로드 (사용자 승인 후에만)
+채널: 쿠루의 인간 관찰일지 (channel id UC5DXwrkg6kjv1Zf6cCK3LbQ)
+- out/epNN/youtube.json 을 작성: {"title": "인간은 왜 ~할까? (이모지) #Shorts" (짧고 궁금하게, 100자 이내), "description": 상황 한 줄 + 이유 요약 1~2줄 + "처방: ..." + "자료: 저자 (연도), 저널" + EP.01의 고정 꼬리말(채널 소개·인스타 안내·#Shorts #심리학 #심리툰 #생활과학), "tags": EP.01과 같은 목록}. EP.01~03 youtube.json 이 예시.
+- Zapier YouTubeV4CLIAPI, connection_id 020bc6c5-64f6-8249-bc43-32b22f83c8a4 (반드시 이 값. 다른 유튜브 연결은 IF컷·궁금도트 채널이다).
+- 먼저 execute_zapier_read_action(action=find_channel, tool_name=youtube_find_channel, params {parts:["snippet"]})로 채널 id가 UC5DXwrkg6kjv1Zf6cCK3LbQ 인지 확인. 다르면 절대 올리지 않는다.
+- execute_zapier_write_action(action=upload_video, tool_name=youtube_upload_video, params: title, description, tags, video=릴스 mp4의 커밋 SHA raw 주소, privacy_status=public, made_for_kids=false). 결과 channelId 확인 후 https://youtube.com/shorts/<id> 링크를 알린다.

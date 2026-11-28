@@ -49,7 +49,7 @@ def card_svg(sc, i, ep):
 
 
 def end_svg(ep, i):
-    b = R.text(540, 330, "자세한 인간 사용설명서는\n게시물에서 →", 76, lh=1.3)
+    b = R.text(540, 330, "자세한 인간 사용설명서는\n인스타 게시물에서 →", 76, lh=1.3)
     b += R.alien(540, 1330, 1.35, "love", "clipboard")
     b += R.shape(R.wpath(R.rect_pts(170, 1430, 740, 150)), R.YELLOW, 6)
     b += R.text(540, 1525, HANDLE, 64)
